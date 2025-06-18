@@ -1,10 +1,10 @@
 package Modeller;
 
-public class Vechicle {
+public class Vehicle {
     private String vechicleNumber;
-    private VechicleType vechicletype;
+    private VehicleType vechicletype;
 
-    public Vechicle(String vechicleNumber, VechicleType vechicletype) {
+    public Vehicle(String vechicleNumber, VehicleType vechicletype) {
         this.vechicleNumber = vechicleNumber;
         this.vechicletype = vechicletype;
     }
@@ -17,11 +17,11 @@ public class Vechicle {
         this.vechicleNumber = vechicleNumber;
     }
 
-    public VechicleType getVechicletype() {
+    public VehicleType getVechicletype() {
         return vechicletype;
     }
 
-    public void setVechicletype(VechicleType vechicletype) {
+    public void setVechicletype(VehicleType vechicletype) {
         this.vechicletype = vechicletype;
     }
 }
