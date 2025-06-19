@@ -9,7 +9,14 @@ import java.util.Map;
 
 public class ParkingService {
     private Map<VehicleType, List<Slot>> parkingSlots = new HashMap<VehicleType,List<Slot>>();
-    private int ticketCounter=0;
+    private int ticketCounter=1;
+    public void addSlot(Slot slot) {
+        VehicleType type = slot.getType();
+        parkingSlots.putIfAbsent(type, new ArrayList<>());
+        parkingSlots.get(type).add(slot);
+    }
+
+    private Map<String, Ticket> activeTickets = new HashMap<>();
     public Ticket parkVehicle(Vehicle vehicle)
     {
          VehicleType type= vehicle.getVechicletype();
@@ -33,7 +40,8 @@ public class ParkingService {
              }
          }
 
-
+System.out.println("No parking slot available");
+         return null;
 
     }
 }

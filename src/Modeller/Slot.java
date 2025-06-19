@@ -8,7 +8,7 @@ public class Slot {
     public Slot(String slotId, VehicleType type, SlotStatus status) {
         this.slotId = slotId;
         this.type = type;
-        // this.status = status;
+        this.status = status;
     }
     public void markOccupied() {
         this.status = SlotStatus.OCCUPIED;
