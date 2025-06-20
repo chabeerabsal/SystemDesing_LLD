@@ -44,4 +44,25 @@ System.out.println("No parking slot available");
          return null;
 
     }
+
+    public LocalDateTime unParkVechicle(String c1, VehicleType vehicleType) {
+        ;
+            List<Slot> slot=parkingSlots.get(vehicleType);
+
+                for(Slot slot1 : slot)
+                {
+                    if(slot1.getType()==vehicleType){
+                    if(slot1.getSlotId().equals(c1)) {
+                        slot1.markAvailable();
+                        //parkingSlots.get(vehicleType).remove(slot1);
+                        System.out.println("Parking Slot " + slot1.getSlotId() + " " + slot1.getStatus());
+                        // for(Map.entry())
+                        // List<Slot> slott= entry.getValue());
+                    }
+                    System.out.println(slot1.getSlotId() + " " + slot1.getStatus()+" "+slot1.getType());
+                }
+            }
+
+        return LocalDateTime.now();
+    }
 }

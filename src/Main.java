@@ -1,6 +1,8 @@
 import Modeller.*;
 import Service.ParkingService;
 
+import java.time.LocalDateTime;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -26,5 +28,6 @@ public class Main {
         } else {
             System.out.println("No available slot found for this vehicle.");
         }
+        LocalDateTime exiteTime=service.unParkVechicle("C1",VehicleType.CAR);
     }
 }
