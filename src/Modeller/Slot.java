@@ -34,5 +34,12 @@ public class Slot {
         return type;
     }
 
-
+    @Override
+    public String toString() {
+        return "Slot{" +
+                "slotId='" + slotId + '\'' +
+                ", type=" + type +
+                ", status=" + status +
+                '}';
+    }
 }

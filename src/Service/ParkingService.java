@@ -2,6 +2,7 @@ package Service;
 
 import Modeller.*;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.*;
@@ -45,24 +46,29 @@ System.out.println("No parking slot available");
 
     }
 
-    public LocalDateTime unParkVechicle(String c1, VehicleType vehicleType) {
-        ;
-            List<Slot> slot=parkingSlots.get(vehicleType);
+    public PrintRecipt unParkVechicle(String ticketNumber) {
 
-                for(Slot slot1 : slot)
-                {
-                    if(slot1.getType()==vehicleType){
-                    if(slot1.getSlotId().equals(c1)) {
-                        slot1.markAvailable();
-                        //parkingSlots.get(vehicleType).remove(slot1);
-                        System.out.println("Parking Slot " + slot1.getSlotId() + " " + slot1.getStatus());
-                        // for(Map.entry())
-                        // List<Slot> slott= entry.getValue());
-                    }
-                    System.out.println(slot1.getSlotId() + " " + slot1.getStatus()+" "+slot1.getType());
-                }
-            }
+          Ticket ticket = activeTickets.get(ticketNumber);
+          if(ticket == null)
+              System.out.println("Ticket Not Found");
+          else {
+              Slot slot = ticket.getSlot();
+              LocalDateTime exitTime = LocalDateTime.now();
+              slot.markAvailable();
+              System.out.println("Unparking Slot Available" + slot.toString());
+              LocalDateTime entryTime = ticket.getEntryTime();
+              activeTickets.remove(ticketNumber);
+              long duration = Duration.between(entryTime, exitTime).toMinutes();
+            double fees=  calculateFees(duration);
 
-        return LocalDateTime.now();
+          return new PrintRecipt(ticket,entryTime,exitTime,duration,fees);
+    }
+          return null;
+    }
+
+    private double calculateFees(long durationMinutes) {
+        double ratePerHour = 10.0;
+        long hours = (durationMinutes + 59) / 60;  // round up to next hour
+        return ratePerHour * hours;
     }
 }
