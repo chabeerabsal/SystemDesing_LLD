@@ -34,7 +34,13 @@ public class Main {
             System.out.println("No available slot found for this vehicle.");
         }
      //   LocalDateTime exiteTime=service.unParkVechicle("C1",VehicleType.CAR);
-        PrintRecipt printRecipt=service.unParkVechicle(ticket1.getTicketNumber());
+
+        try {
+            Thread.sleep(5000);  // 5000 ms = 5 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        PrintRecipt printRecipt=service.unParkVechicle(ticket.getTicketNumber());
         if (printRecipt != null) {
             System.out.println(printRecipt.toString());
         }

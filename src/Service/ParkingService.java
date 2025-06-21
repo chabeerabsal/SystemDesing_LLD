@@ -53,7 +53,7 @@ System.out.println("No parking slot available");
               System.out.println("Ticket Not Found");
           else {
               Slot slot = ticket.getSlot();
-              LocalDateTime exitTime = LocalDateTime.now();
+              LocalDateTime exitTime = ticket.getEntryTime().plusMinutes(90);
               slot.markAvailable();
               System.out.println("Unparking Slot Available" + slot.toString());
               LocalDateTime entryTime = ticket.getEntryTime();
