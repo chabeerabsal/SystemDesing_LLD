@@ -29,4 +29,5 @@ public class PrintRecipt {
     public String toString() {
         return ticket.toString()+""+entryTime.toString() + " " + ExitTime.toString()+" "+duration+" "+fees;
     }
+
 }
