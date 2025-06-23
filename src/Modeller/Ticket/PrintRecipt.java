@@ -1,4 +1,4 @@
-package Modeller;
+package Modeller.Ticket;
 
 import java.time.LocalDateTime;
 

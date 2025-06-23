@@ -1,4 +1,4 @@
-package Modeller;
+package Modeller.Vehicle;
 
 public class Vehicle {
     private String vechicleNumber;

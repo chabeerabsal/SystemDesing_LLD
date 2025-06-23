@@ -1,8 +1,10 @@
-package Service;
+package Service.Parking;
 
-import Modeller.PrintRecipt;
-import Modeller.Slot;
-import Modeller.Ticket;
+import Modeller.Ticket.PrintRecipt;
+import Modeller.Slot.Slot;
+import Modeller.Ticket.Ticket;
+import Service.Fees.FeesCalculator;
+import Service.Ticket.IssueTicket;
 
 import java.time.Duration;
 import java.time.LocalDateTime;

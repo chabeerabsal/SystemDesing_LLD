@@ -1,8 +1,14 @@
-import Modeller.*;
+import Modeller.Slot.Slot;
+import Modeller.Slot.SlotStatus;
+import Modeller.Ticket.PrintRecipt;
+import Modeller.Ticket.Ticket;
+import Modeller.Vehicle.Vehicle;
+import Modeller.Vehicle.VehicleType;
 import Service.*;
-
-import java.time.Duration;
-import java.time.LocalDateTime;
+import Service.Fees.HourlyFeesCalculator;
+import Service.Parking.ParkingService;
+import Service.Parking.UnParkVehicle;
+import Service.Ticket.IssueTicket;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

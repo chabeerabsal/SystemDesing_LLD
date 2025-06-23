@@ -1,4 +1,7 @@
-package Modeller;
+package Modeller.Ticket;
+
+import Modeller.Slot.Slot;
+import Modeller.Vehicle.Vehicle;
 
 import java.time.LocalDateTime;
 

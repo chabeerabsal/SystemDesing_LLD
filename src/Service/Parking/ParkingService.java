@@ -1,12 +1,11 @@
-package Service;
+package Service.Parking;
 
-import Modeller.*;
-
-import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.*;
-import java.util.Map;
+import Modeller.Slot.Slot;
+import Modeller.Ticket.Ticket;
+import Modeller.Vehicle.Vehicle;
+import Modeller.Vehicle.VehicleType;
+import Service.SlotManager;
+import Service.Ticket.IssueTicket;
 
 public class ParkingService {
    private SlotManager slotManager;

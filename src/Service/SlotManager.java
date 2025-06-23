@@ -1,8 +1,8 @@
 package Service;
 
-import Modeller.Slot;
-import Modeller.SlotStatus;
-import Modeller.VehicleType;
+import Modeller.Slot.Slot;
+import Modeller.Slot.SlotStatus;
+import Modeller.Vehicle.VehicleType;
 
 import java.util.ArrayList;
 import java.util.HashMap;

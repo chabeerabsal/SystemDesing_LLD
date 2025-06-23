@@ -1,4 +1,6 @@
-package Modeller;
+package Modeller.Slot;
+
+import Modeller.Vehicle.VehicleType;
 
 public class Slot {
     private String slotId;            // e.g., C1, B2

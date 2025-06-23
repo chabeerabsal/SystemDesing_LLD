@@ -1,8 +1,8 @@
-package Service;
+package Service.Ticket;
 
-import Modeller.Slot;
-import Modeller.Ticket;
-import Modeller.Vehicle;
+import Modeller.Slot.Slot;
+import Modeller.Ticket.Ticket;
+import Modeller.Vehicle.Vehicle;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;

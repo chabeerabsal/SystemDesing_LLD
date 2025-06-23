@@ -1,4 +1,4 @@
-package Service;
+package Service.Fees;
 
 public class HourlyFeesCalculator implements FeesCalculator {
     @Override
