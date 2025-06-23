@@ -1,5 +1,5 @@
 import Modeller.*;
-import Service.ParkingService;
+import Service.*;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -8,15 +8,20 @@ import java.time.LocalDateTime;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        ParkingService service = new ParkingService();
+
+        SlotManager slotManager = new SlotManager();
+        IssueTicket issueTicket = new IssueTicket();
+        HourlyFeesCalculator hourlyFeesCalculator = new HourlyFeesCalculator();
 
         // 2. Add slots
-        service.addSlot(new Slot("C1", VehicleType.CAR, SlotStatus.AVAILABLE));
-        service.addSlot(new Slot("C2", VehicleType.CAR, SlotStatus.AVAILABLE));
-        service.addSlot(new Slot("B1", VehicleType.BIKE, SlotStatus.AVAILABLE));
-
+        slotManager.addSlot(new Slot("C1", VehicleType.CAR, SlotStatus.AVAILABLE));
+        slotManager.addSlot(new Slot("C2", VehicleType.CAR, SlotStatus.AVAILABLE));
+        slotManager.addSlot(new Slot("B1", VehicleType.BIKE, SlotStatus.AVAILABLE));
+        ParkingService service = new ParkingService(slotManager, issueTicket);
+        UnParkVehicle unParkVehicle = new UnParkVehicle(issueTicket, hourlyFeesCalculator);
         // 3. Create a vehicle
         Vehicle vehicle = new Vehicle("TN23AB1234", VehicleType.CAR);
         Vehicle vehicle1 = new Vehicle("TN23AB1232", VehicleType.CAR);
@@ -33,17 +38,18 @@ public class Main {
         } else {
             System.out.println("No available slot found for this vehicle.");
         }
-     //   LocalDateTime exiteTime=service.unParkVechicle("C1",VehicleType.CAR);
+        //   LocalDateTime exiteTime=service.unParkVechicle("C1",VehicleType.CAR);
 
         try {
             Thread.sleep(5000);  // 5000 ms = 5 seconds
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-        PrintRecipt printRecipt=service.unParkVechicle(ticket.getTicketNumber());
-        if (printRecipt != null) {
-            System.out.println(printRecipt.toString());
-        }
+       }
+
+            PrintRecipt printRecipt = unParkVehicle.unParkVechicle(ticket.getTicketNumber());
+            if (printRecipt != null) {
+                System.out.println(printRecipt);
+            }
 //        Vehicle vehicle3 = new Vehicle("TN23AB1234", VehicleType.BIKE);
 //        Ticket ticket3 = service.parkVehicle(vehicle3);
 //
@@ -63,6 +69,5 @@ public class Main {
 //        }
 
 
-
+        }
     }
-}
